@@ -7,7 +7,6 @@ namespace Leventcz\Top;
 use Illuminate\Contracts\Redis\Factory;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Leventcz\Top\Commands\TopCommand;
 use Leventcz\Top\Contracts\Repository;
 use Leventcz\Top\Data\EventCounter;
 use Leventcz\Top\Listeners\CacheListener;
@@ -39,7 +38,6 @@ class ServiceProvider extends BaseServiceProvider
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
-            $this->commands([TopCommand::class]);
             $this->publishes([__DIR__.'/../config/top.php' => config_path('top.php')], 'top');
 
             return;

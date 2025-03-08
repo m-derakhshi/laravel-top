@@ -1,5 +1,5 @@
 {
-    "name": "leventcz/laravel-top",
+    "name": "m-derakhshi/laravel-top",
     "description": "Real-time monitoring straight from the command line for Laravel applications.",
     "keywords": [
         "laravel",
@@ -23,7 +23,6 @@
         "php": "^8.2.0",
         "ext-pcntl": "*",
         "laravel/framework": "^10.0|^11.0|^12.0",
-        "react/event-loop": "^1.5"
     },
     "require-dev": {
         "laravel/pint": "^1.15",
