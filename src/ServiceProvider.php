@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 use Leventcz\Top\Contracts\Repository;
 use Leventcz\Top\Data\EventCounter;
+use Leventcz\Top\Facades\Top;
 use Leventcz\Top\Listeners\CacheListener;
 use Leventcz\Top\Listeners\DatabaseListener;
 use Leventcz\Top\Listeners\RequestListener;
@@ -37,6 +38,11 @@ class ServiceProvider extends BaseServiceProvider
 
     public function boot(): void
     {
+        if (config('top.recording_mode') === 'always') {
+            if (! Top::isRecording()) {
+                Top::startRecording();
+            }
+        }
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__.'/../config/top.php' => config_path('top.php')], 'top');
 
