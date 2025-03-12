@@ -73,6 +73,9 @@ readonly class RedisRepository implements Repository
             local averageDuration = (totalRequests > 0 and totalDuration / totalRequests) or 0
 
             return cjson.encode({
+                totalRequests = totalRequests,
+                totalMemory = totalMemory,
+                totalDuration = totalDuration,
                 averageRequestPerSecond = averageRequestPerSecond,
                 averageMemoryUsage = averageMemoryUsage,
                 averageDuration = averageDuration
@@ -112,6 +115,9 @@ readonly class RedisRepository implements Repository
             local averageQueryDuration = (totalRequests > 0 and totalQueryDuration / totalRequests) or 0
 
             return cjson.encode({
+                totalRequests = totalRequests,
+                totalQueryExecuted = totalQueryExecuted,
+                totalQueryDuration = totalQueryDuration,
                 averageQueryPerSecond = averageQueryPerSecond,
                 averageQueryDuration = averageQueryDuration
             })
@@ -151,6 +157,9 @@ readonly class RedisRepository implements Repository
             local averageWritePerSecond = (totalCacheWritten > 0 and totalCacheWritten / 5) or 0
 
             return cjson.encode({
+                totalCacheHit = totalCacheHit,
+                totalCacheMissed = totalCacheMissed,
+                totalCacheWritten = totalCacheWritten,
                 averageHitPerSecond = averageHitPerSecond,
                 averageMissPerSecond = averageMissPerSecond,
                 averageWritePerSecond = averageWritePerSecond
