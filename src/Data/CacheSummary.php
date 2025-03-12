@@ -10,6 +10,9 @@ class CacheSummary extends Data
         public float $averageHitPerSecond,
         public float $averageMissPerSecond,
         public float $averageWritePerSecond,
+        public int $totalCacheHit,
+        public int $totalCacheMissed,
+        public int $totalCacheWritten,
     ) {
     }
 }

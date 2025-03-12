@@ -9,6 +9,8 @@ class DatabaseSummary extends Data
     public function __construct(
         public float $averageQueryPerSecond,
         public float $averageQueryDuration,
+        public int $totalRequests,
+        public int $totalQueryExecuted,
     ) {
     }
 }

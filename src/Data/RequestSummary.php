@@ -10,6 +10,7 @@ class RequestSummary extends Data
         public float $averageRequestPerSecond,
         public float $averageMemoryUsage,
         public float $averageDuration,
+        public int $totalRequests
     ) {
     }
 }
